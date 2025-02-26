@@ -35,7 +35,7 @@ class ProductService
         }
 
         $product = new Product($id, $name, $price);
-        $this->writer->create((string) $id, json_encode($product->toArray()));
+        $this->writer->create((string) $id, json_encode($product));
     }
 
     public function updateProduct(int $id, string $name = '', float $price = 0)

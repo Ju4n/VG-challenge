@@ -2,7 +2,9 @@
 
 namespace App\Model;
 
-class Product {
+use JsonSerializable;
+
+class Product implements JsonSerializable {
     public function __construct(
         protected int $id, 
         protected string $name, 
@@ -11,7 +13,7 @@ class Product {
         //
     }
 
-    public function toArray(): array
+    public function jsonSerialize(): mixed
     {
         return [
             'id' => $this->id,
@@ -28,20 +30,5 @@ class Product {
     public function setPrice(float $price) 
     {
         $this->price = $price;
-    }
-
-    public static function fromFileData(int $id, string $fileData) 
-    {
-        $data = json_decode($fileData);
-        self::$id = $id; 
-        if ($data->name) {
-            self::$name = $data->name;
-        }
-
-        if ($data->price) {
-            self::$price = $data->price;
-        }
-
-        return new self($id, self::$name, self::$price);
     }
 }
