@@ -6,9 +6,7 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 $queue = new EventQueue();
 
-while(true) {
-    $event = $queue->dequeue();
-    echo $event->getMessage();
-    sleep(1);
+while($event = $queue->dequeue()) {
+    echo $event->getMessage() . PHP_EOL;
 }
 

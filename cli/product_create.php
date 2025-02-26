@@ -15,7 +15,7 @@ if ($argc >= 2) {
     $service->createProduct((int) $argv[1], $argv[2], (float) $argv[3]);
 
     $queue->enqueue(
-        new Event(sprintf('Product Created %s %s ', $argv[1], $argv[2], $argv[3]))
+        new Event(sprintf('Product Created %s %s %s', $argv[1], $argv[2], $argv[3]))
     );
 } else {
     echo "ERROR: arguments should be {id} {name} {price}";
