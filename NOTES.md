@@ -1,0 +1,5 @@
+- The crud is already working
+- The EventQueue is complete but partially implemented just in product_create.php
+- There are bugs in EventQueue I couldn't debug
+- I've tried my best to make a decoupled system and respect SOLID as good as I could.
+- It was a nice challenge btw,I enjoyed it a lot :) 
